@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Welcome Page -->
+<div id="welcomePage" class="page active">
+  <h1>Hey… I made something for you 💫</h1>
+  <button onclick="goToDevice()">Open</button>
+</div>
+
+<!-- Device Page -->
+<div id="devicePage" class="page">
+  <h2>How are you viewing this? 😊</h2>
+  <button onclick="selectDevice('phone')">📱 Phone</button>
+  <button onclick="selectDevice('laptop')">💻 Laptop</button>
+</div>
+
+<!-- Gallery Page -->
+<div id="galleryPage" class="page">
+  <div class="gallery">
+
+    <img id="imageDisplay" src="images/1.jpg">
+
+    <p id="caption">You have no idea how special you are…</p>
+
+    <!-- Final Button -->
+    <button id="finalBtn" onclick="showMessage()">Tap here…</button>
+
+    <!-- Final Message -->
+    <div id="finalMessage">
+      I didn’t know how to say this directly…  
+      but you’ve become someone really important to me 💫
+    </div>
+
+    <!-- Laptop Controls -->
+    <button id="leftBtn" onclick="prevImage()">❮</button>
+    <button id="rightBtn" onclick="nextImage()">❯</button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

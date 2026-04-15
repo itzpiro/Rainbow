@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    text-align: center;
+  }
+  
+  .page {
+    display: none;
+    margin-top: 100px;
+  }
+  
+  .active {
+    display: block;
+    animation: fadeIn 0.8s ease;
+  }
+  
+  h1, h2 {
+    font-weight: 300;
+  }
+  
+  button {
+    padding: 12px 22px;
+    margin: 10px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  
+  .gallery {
+    position: relative;
+  }
+  
+  #imageDisplay {
+    width: 85%;
+    max-width: 400px;
+    border-radius: 15px;
+    transition: 0.5s;
+  }
+  
+  #caption {
+    margin-top: 15px;
+    font-size: 16px;
+    opacity: 0.85;
+  }
+  
+  /* Buttons for laptop */
+  #leftBtn, #rightBtn {
+    position: absolute;
+    top: 50%;
+    font-size: 24px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    padding: 10px;
+  }
+  
+  #leftBtn { left: 10px; }
+  #rightBtn { right: 10px; }
+  
+  /* Final Button */
+  #finalBtn {
+    display: none;
+    margin-top: 15px;
+  }
+  
+  /* Final Message */
+  #finalMessage {
+    display: none;
+    margin-top: 20px;
+    font-size: 18px;
+    opacity: 0;
+    transition: 1s;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
