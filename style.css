@@ -1,88 +1,148 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI';
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #1e1b4b, #020617);
     color: white;
+    overflow: hidden;
+  }
+  
+  /* Pages */
+  .page {
+    display: none;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
   }
   
-  .page {
-    display: none;
-    margin-top: 100px;
-  }
-  
   .active {
-    display: block;
-    animation: fadeIn 0.8s ease;
+    display: flex;
+    animation: fadeIn 1s ease;
   }
   
-  h1, h2 {
-    font-weight: 300;
-  }
-  
+  /* Buttons */
   button {
     padding: 12px 22px;
     margin: 10px;
     border: none;
+    border-radius: 25px;
     background: rgba(255,255,255,0.1);
     color: white;
-    border-radius: 20px;
     backdrop-filter: blur(10px);
     cursor: pointer;
     transition: 0.3s;
   }
   
   button:hover {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.25);
   }
   
+  /* Gallery */
   .gallery {
     position: relative;
+    width: 90%;
+    max-width: 420px;
   }
   
   #imageDisplay {
-    width: 85%;
-    max-width: 400px;
-    border-radius: 15px;
-    transition: 0.5s;
+    width: 100%;
+    border-radius: 20px;
+    transition: opacity 0.5s ease;
   }
   
-  #caption {
-    margin-top: 15px;
-    font-size: 16px;
-    opacity: 0.85;
-  }
-  
-  /* Buttons for laptop */
+  /* Laptop arrows */
   #leftBtn, #rightBtn {
     position: absolute;
     top: 50%;
-    font-size: 24px;
+    transform: translateY(-50%);
+    font-size: 22px;
     background: rgba(0,0,0,0.4);
     border-radius: 50%;
     padding: 10px;
   }
   
-  #leftBtn { left: 10px; }
-  #rightBtn { right: 10px; }
+  #leftBtn { left: -20px; }
+  #rightBtn { right: -20px; }
   
-  /* Final Button */
+  /* Final elements */
   #finalBtn {
     display: none;
-    margin-top: 15px;
+    margin-top: 20px;
   }
   
-  /* Final Message */
   #finalMessage {
     display: none;
     margin-top: 20px;
     font-size: 18px;
     opacity: 0;
-    transition: 1s;
+    transition: 1.2s;
+    line-height: 1.6;
   }
   
   /* Animation */
   @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
+    from {opacity: 0; transform: translateY(30px);}
     to {opacity: 1; transform: translateY(0);}
+  }
+  
+  /* Floating Bubbles */
+  .bubbles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .bubbles span {
+    position: absolute;
+    bottom: -50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    animation: rise 10s infinite ease-in;
+  }
+  
+  .bubbles span:nth-child(1) {
+    left: 10%;
+    width: 20px; height: 20px;
+    animation-duration: 8s;
+  }
+  .bubbles span:nth-child(2) {
+    left: 30%;
+    width: 30px; height: 30px;
+    animation-duration: 10s;
+  }
+  .bubbles span:nth-child(3) {
+    left: 50%;
+    width: 15px; height: 15px;
+    animation-duration: 7s;
+  }
+  .bubbles span:nth-child(4) {
+    left: 70%;
+    width: 25px; height: 25px;
+    animation-duration: 11s;
+  }
+  .bubbles span:nth-child(5) {
+    left: 85%;
+    width: 18px; height: 18px;
+    animation-duration: 9s;
+  }
+  
+  @keyframes rise {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(-100vh) scale(1.4);
+      opacity: 0;
+    }
+  }
+  
+  /* Mobile Fix */
+  @media (max-width: 500px) {
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    #imageDisplay { border-radius: 15px; }
   }

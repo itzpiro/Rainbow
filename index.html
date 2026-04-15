@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For You 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Floating Bubbles -->
+<div class="bubbles">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
 <!-- Welcome Page -->
 <div id="welcomePage" class="page active">
@@ -15,7 +25,7 @@
 
 <!-- Device Page -->
 <div id="devicePage" class="page">
-  <h2>How are you viewing this? 😊</h2>
+  <h2>How are you viewing this? 🤍</h2>
   <button onclick="selectDevice('phone')">📱 Phone</button>
   <button onclick="selectDevice('laptop')">💻 Laptop</button>
 </div>
@@ -25,8 +35,6 @@
   <div class="gallery">
 
     <img id="imageDisplay" src="images/1.jpg">
-
-    <p id="caption">You have no idea how special you are…</p>
 
     <!-- Final Button -->
     <button id="finalBtn" onclick="showMessage()">Tap here…</button>

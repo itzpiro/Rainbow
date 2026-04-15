@@ -2,15 +2,6 @@ let currentImage = 1;
 let totalImages = 6;
 let deviceType = "";
 
-let captions = [
-  "You have no idea how special you are…",
-  "Every little thing about you feels different ✨",
-  "I don’t say it often… but you matter a lot",
-  "Some people just… stay in your mind",
-  "And somehow… you became one of them",
-  "This is just a small reminder 💖"
-];
-
 // Navigation
 function goToDevice() {
   showPage("devicePage");
@@ -27,16 +18,15 @@ function selectDevice(device) {
   }
 }
 
-// Page control
+// Page switch
 function showPage(pageId) {
   document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
   document.getElementById(pageId).classList.add("active");
 }
 
-// Update image + caption
+// Update image
 function updateImage() {
   let img = document.getElementById("imageDisplay");
-  let caption = document.getElementById("caption");
   let finalBtn = document.getElementById("finalBtn");
   let finalMessage = document.getElementById("finalMessage");
 
@@ -44,11 +34,9 @@ function updateImage() {
 
   setTimeout(() => {
     img.src = `images/${currentImage}.jpg`;
-    caption.innerText = captions[currentImage - 1];
     img.style.opacity = 1;
   }, 200);
 
-  // Show button only on last image
   if (currentImage === totalImages) {
     finalBtn.style.display = "inline-block";
   } else {
@@ -73,7 +61,7 @@ function prevImage() {
   }
 }
 
-// Swipe for phone
+// Swipe (mobile)
 function enableSwipe() {
   let startX = 0;
   let img = document.getElementById("imageDisplay");
@@ -90,7 +78,7 @@ function enableSwipe() {
   });
 }
 
-// Final message reveal
+// Final message
 function showMessage() {
   let msg = document.getElementById("finalMessage");
 
