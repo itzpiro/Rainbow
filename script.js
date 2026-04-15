@@ -1,24 +1,10 @@
 let currentImage = 1;
-let totalImages = 5;
+let totalImages = 6;
 
-// Detect device
-function isPhone() {
-  return /Mobi|Android|iPhone/i.test(navigator.userAgent);
-}
-
-// Navigation
-function goToDevice() {
-  showPage("devicePage");
-}
-
-function selectDevice(device) {
+// Start directly
+function start() {
   showPage("galleryPage");
-
-  if (device === "phone") {
-    enableSwipe();
-  } else {
-    enableClickNavigation(); // laptop fix
-  }
+  enableSwipe();
 }
 
 // Page switch
@@ -66,7 +52,7 @@ function prevImage() {
   }
 }
 
-// 📱 Swipe (phone)
+// Swipe only (phone)
 function enableSwipe() {
   let startX = 0;
   let endX = 0;
@@ -86,21 +72,6 @@ function enableSwipe() {
 
     if (diff > 50) nextImage();
     else if (diff < -50) prevImage();
-  });
-}
-
-// 💻 Click navigation (laptop)
-function enableClickNavigation() {
-  let container = document.querySelector(".story-container");
-
-  container.addEventListener("click", (e) => {
-    let screenWidth = window.innerWidth;
-
-    if (e.clientX > screenWidth / 2) {
-      nextImage(); // right side click
-    } else {
-      prevImage(); // left side click
-    }
   });
 }
 
