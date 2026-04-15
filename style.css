@@ -6,14 +6,13 @@ body {
     overflow: hidden;
   }
   
-  /* FIXED PAGE SYSTEM */
+  /* Page system */
   .page {
     display: none;
     height: 100vh;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    text-align: center;
   }
   
   .page.active {
@@ -38,39 +37,54 @@ body {
     background: rgba(255,255,255,0.25);
   }
   
-  /* Gallery */
+  /* ✨ BEAUTIFUL CARD */
   .gallery {
     position: relative;
-    width: 90%;
-    max-width: 420px;
+    padding: 15px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
   }
   
+  /* IMAGE */
   #imageDisplay {
-    width: 100%;
+    width: 300px;
+    max-width: 80vw;
     border-radius: 20px;
-    transition: opacity 0.5s ease;
+    transition: all 0.5s ease;
+    box-shadow: 
+      0 0 25px rgba(255,255,255,0.15),
+      0 0 60px rgba(139,92,246,0.2);
   }
   
-  /* Laptop arrows */
+  /* Hover glow */
+  #imageDisplay:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Arrows */
   #leftBtn, #rightBtn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 22px;
-    background: rgba(0,0,0,0.4);
+    font-size: 20px;
+    background: rgba(255,255,255,0.15);
     border-radius: 50%;
     padding: 10px;
+    backdrop-filter: blur(10px);
   }
   
-  #leftBtn { left: -20px; }
-  #rightBtn { right: -20px; }
+  #leftBtn { left: -40px; }
+  #rightBtn { right: -40px; }
   
-  /* Final */
+  /* Final button */
   #finalBtn {
     display: none;
     margin-top: 20px;
   }
   
+  /* Final message */
   #finalMessage {
     display: none;
     margin-top: 20px;
@@ -78,6 +92,7 @@ body {
     opacity: 0;
     transition: 1.2s;
     line-height: 1.6;
+    max-width: 300px;
   }
   
   /* Animation */
@@ -102,11 +117,11 @@ body {
     animation: rise 10s infinite ease-in;
   }
   
-  .bubbles span:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-duration: 8s; }
-  .bubbles span:nth-child(2) { left: 30%; width: 30px; height: 30px; animation-duration: 10s; }
-  .bubbles span:nth-child(3) { left: 50%; width: 15px; height: 15px; animation-duration: 7s; }
-  .bubbles span:nth-child(4) { left: 70%; width: 25px; height: 25px; animation-duration: 11s; }
-  .bubbles span:nth-child(5) { left: 85%; width: 18px; height: 18px; animation-duration: 9s; }
+  .bubbles span:nth-child(1) { left: 10%; width: 20px; height: 20px; }
+  .bubbles span:nth-child(2) { left: 30%; width: 30px; height: 30px; }
+  .bubbles span:nth-child(3) { left: 50%; width: 15px; height: 15px; }
+  .bubbles span:nth-child(4) { left: 70%; width: 25px; height: 25px; }
+  .bubbles span:nth-child(5) { left: 85%; width: 18px; height: 18px; }
   
   @keyframes rise {
     0% { transform: translateY(0); opacity: 0.3; }
@@ -115,6 +130,10 @@ body {
   
   /* Mobile fix */
   @media (max-width: 500px) {
-    h1 { font-size: 22px; }
-    h2 { font-size: 18px; }
+    #imageDisplay {
+      width: 85vw;
+    }
+  
+    #leftBtn { left: -20px; }
+    #rightBtn { right: -20px; }
   }
