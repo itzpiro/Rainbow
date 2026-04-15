@@ -10,8 +10,6 @@ function selectDevice(device) {
   showPage("galleryPage");
 
   if (device === "phone") {
-    document.getElementById("leftBtn").style.display = "none";
-    document.getElementById("rightBtn").style.display = "none";
     enableSwipe();
   }
 }
@@ -35,8 +33,10 @@ function updateImage() {
     img.style.opacity = 1;
   }, 200);
 
+  document.getElementById("counter").innerText = currentImage + " / " + totalImages;
+
   if (currentImage === totalImages) {
-    finalBtn.style.display = "inline-block";
+    finalBtn.style.display = "block";
   } else {
     finalBtn.style.display = "none";
     finalMessage.style.display = "none";
@@ -59,20 +59,26 @@ function prevImage() {
   }
 }
 
-// Swipe (mobile)
+// Swipe (full screen)
 function enableSwipe() {
   let startX = 0;
-  let img = document.getElementById("imageDisplay");
+  let endX = 0;
 
-  img.addEventListener("touchstart", e => {
+  let container = document.querySelector(".story-container");
+
+  container.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
   });
 
-  img.addEventListener("touchend", e => {
-    let endX = e.changedTouches[0].clientX;
+  container.addEventListener("touchmove", e => {
+    endX = e.touches[0].clientX;
+  });
 
-    if (startX - endX > 50) nextImage();
-    if (endX - startX > 50) prevImage();
+  container.addEventListener("touchend", () => {
+    let diff = startX - endX;
+
+    if (diff > 50) nextImage();
+    else if (diff < -50) prevImage();
   });
 }
 
