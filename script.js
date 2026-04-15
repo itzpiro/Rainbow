@@ -1,5 +1,10 @@
 let currentImage = 1;
-let totalImages = 6;
+let totalImages = 5;
+
+// Detect device
+function isPhone() {
+  return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+}
 
 // Navigation
 function goToDevice() {
@@ -11,6 +16,8 @@ function selectDevice(device) {
 
   if (device === "phone") {
     enableSwipe();
+  } else {
+    enableClickNavigation(); // laptop fix
   }
 }
 
@@ -44,7 +51,7 @@ function updateImage() {
   }
 }
 
-// Controls
+// Next / Prev
 function nextImage() {
   if (currentImage < totalImages) {
     currentImage++;
@@ -59,7 +66,7 @@ function prevImage() {
   }
 }
 
-// Swipe (full screen)
+// 📱 Swipe (phone)
 function enableSwipe() {
   let startX = 0;
   let endX = 0;
@@ -79,6 +86,21 @@ function enableSwipe() {
 
     if (diff > 50) nextImage();
     else if (diff < -50) prevImage();
+  });
+}
+
+// 💻 Click navigation (laptop)
+function enableClickNavigation() {
+  let container = document.querySelector(".story-container");
+
+  container.addEventListener("click", (e) => {
+    let screenWidth = window.innerWidth;
+
+    if (e.clientX > screenWidth / 2) {
+      nextImage(); // right side click
+    } else {
+      prevImage(); // left side click
+    }
   });
 }
 
