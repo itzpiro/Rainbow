@@ -1,6 +1,5 @@
 let currentImage = 1;
 let totalImages = 6;
-let deviceType = "";
 
 // Navigation
 function goToDevice() {
@@ -8,7 +7,6 @@ function goToDevice() {
 }
 
 function selectDevice(device) {
-  deviceType = device;
   showPage("galleryPage");
 
   if (device === "phone") {
