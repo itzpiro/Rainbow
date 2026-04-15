@@ -1,5 +1,5 @@
 let currentImage = 1;
-let totalImages = 6;
+let totalImages = 5;
 
 // Start directly
 function start() {
